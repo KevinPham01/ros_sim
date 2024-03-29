@@ -54,6 +54,13 @@
       <pose>-0.3 -3.0 0.01 0.0 0.0 1.57</pose>
       <uri>model://turtlebot3_burger</uri>
     </include>
+    
+        <include>
+      <pose>-0.3 -4.0 0.01 0.0 0.0 1.57</pose>
+      <uri>model://follower</uri>
+    </include>
+
+
 
   </world>
 </sdf>

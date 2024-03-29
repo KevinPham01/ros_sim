@@ -2171,7 +2171,7 @@
     </gui>
 
     <include>
-      <uri>model://turtlebot3_burger</uri>
+      <uri>model://td_robot</uri>
       <pose>0 0 0.01 0 0 0</pose>
       <static>false</static>
     </include>
