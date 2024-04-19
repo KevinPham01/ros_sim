@@ -11,8 +11,8 @@
   </include>
   <!--Select robot and initial position-->
   <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="x_pos" default="-7.0"/>
-  <arg name="y_pos" default="-3.0"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
   <arg name="z_pos" default="0.0"/>
   <arg name="theta_orientation" default="1.5708"/>
   <!--Description of robot-->

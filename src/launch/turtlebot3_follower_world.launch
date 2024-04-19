@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+  <!--Open the gazebo with maze environment-->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find ros_sim)/worlds/maze.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!--Select robot and initial position for leader robot-->
+  <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+  <arg name="theta_orientation" default="1.5708"/>
+
+  <!--Spawn leader robot in gazebo-->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ros_sim)/description/urdf/turtlebot3_$(arg model).urdf.xacro" />
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf_leader" args="-urdf -model turtlebot3_$(arg model)_leader -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -Y $(arg theta_orientation) -param robot_description" />
+
+  <!-- Additional parameters for follower robot -->
+  <arg name="x_pos_follower" default="0.0"/> <!-- Adjust this as needed -->
+  <arg name="y_pos_follower" default="-0.5"/> <!-- Adjust this as needed -->
+  <arg name="z_pos_follower" default="0.0"/>
+  <arg name="theta_orientation_follower" default="1.5708"/>
+
+  <!--Spawn follower robot in gazebo-->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf_follower" args="-urdf -model turtlebot3_$(arg model)_follower -x $(arg x_pos_follower) -y $(arg y_pos_follower) -z $(arg z_pos_follower) -Y $(arg theta_orientation_follower) -param robot_description" />
+
+</launch>

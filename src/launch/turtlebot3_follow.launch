@@ -1,0 +1,5 @@
+<launch>
+    <!-- Node to run the follower script -->
+    <node name="follower_node" pkg="ros_sim" type="follow.py" output="screen">
+    </node>
+</launch>
