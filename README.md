@@ -8,4 +8,4 @@ It ulitizes Gazebo and ROS1 Melodic SLAM and Navigation to explore unknown maze 
 * Python file for the follower's function to adjust the distance and speed
   
 # Known Issue
-* Follower will only a few times before going on its own
+* Will only follow a few times before going on its own
